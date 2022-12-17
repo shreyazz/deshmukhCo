@@ -1,0 +1,32 @@
+---
+export interface Props {
+	title: string;
+}
+
+const { title = "Deshmukh & Co." } = Astro.props;
+import "../styles/global.css";
+---
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<!-- * SEO tags -->
+		<!-- <meta property="og:image" content="https://i.imgur.com/uXE9EqT.jpg" /> -->
+	<meta name="description" content="One stop to all your taxation and legal consultancy services"/>
+	<meta name="keywords" content="Labour Law, Provident Fund Consultant, ESIC Consultants, Professional Tax Consultants, Trade License Consultants, Payroll Management Services, ESIC Filling Consultants">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta property="og:title" content="Deshmukh & Co." />
+	<meta property="og:description" 
+ 	 content="One stop to all your taxation and legal consultancy services" />
+		<!-- * SEO tags end -->
+		<title>{title}</title>
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>
+
