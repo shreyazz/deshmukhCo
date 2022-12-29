@@ -1,0 +1,16 @@
+---
+export interface Props{
+    serifTitle: string,
+    serifColor: string,
+    sansTitle: string
+    sansColor: string
+}
+
+const {serifTitle, sansTitle, serifColor = "text-darkBlue", sansColor = "text-darkBlue"} = Astro.props
+---
+
+<p class={`${serifColor} font-serif text-2xl font-semibold`}>{serifTitle}</p>
+<h1 class={`${sansColor} font-sans text-3xl font-semibold mt-2`}>
+  {sansTitle}
+</h1>
+

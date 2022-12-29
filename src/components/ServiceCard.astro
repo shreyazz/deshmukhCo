@@ -1,0 +1,22 @@
+---
+
+export interface Props {
+    icon: string;
+    title: string;
+    desc: string;
+}
+
+const { title, desc, icon } = Astro.props;
+
+---
+
+<div class="p-3 bg-pureWhite border-darkBlue border-2 rounded-md flex flex-col gap-2 justify-start items-start text-start w-60">
+    <img src={icon} alt="" class="h-10 text-left">
+    <h1 class="text-xl font-normal">{title}</h1>
+    <p class="text-sm font-thin">{desc}</p>
+</div>
+
+
+<!-- total clients: 300+ -->
+<!-- years in industry: 10+  -->
+<!-- payroll mgmt : 5000+ emps w diff employer  -->

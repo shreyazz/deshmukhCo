@@ -1,6 +1,28 @@
 ---
+interface navLinkType {
+  to: string;
+  name: string;
+}
+export interface Props {
+  navLinks: Array<navLinkType>;
+  logo: any;
+}
+
+const { navLinks, logo } = Astro.props;
 ---
 
-<nav></nav>
+<nav class="navbar w-full bg-pureWhite shadow-md p-4 px-16 mix-blend-color-burn flex justify-between items-center">
+  <a href="/"> <img src={logo} alt="deshmukh&CO logo" class="logo" /></a>
+  <ul class="list-none hidden gap-5 lg:flex md:flex sm:hidden">
+    {
+      navLinks.map((navItem) => (
+        <a href={navItem.to} class="hover:text-gold ease-in transition-all">
+          <li>{navItem.name}</li>{" "}
+        </a>
+      ))
+    }
+  </ul>
+  <div class="ham lg:hidden md:hidden sm:flex p-4 bg-darkBlue">
 
-<style></style>
+  </div>
+</nav>
