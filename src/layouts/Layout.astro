@@ -5,6 +5,8 @@ export interface Props {
 
 const { title = "Deshmukh & Co." } = Astro.props;
 import "../styles/global.css";
+import Navbar from "../components/Navbar.astro";
+import logo from "../assets/logo.svg";
 ---
 
 <!DOCTYPE html>
@@ -30,10 +32,33 @@ import "../styles/global.css";
       property="og:description"
       content="One stop to all your taxation and legal consultancy services"
     />
-    <!-- * SEO tags end -->
+    <!-- * SEO tags : END-->
+    <!-- * Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant:wght@400;500;600;700&family=Rubik:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- * Google Fonts : END -->
+   
     <title>{title}</title>
   </head>
   <body>
+    <Navbar
+      navLinks={[
+        { to: "/", name: "Home" },
+        { to: "/services", name: "Services" },
+        { to: "/about", name: "About" },
+        { to: "/blogs", name: "Blogs" },
+        { to: "/contact", name: "Contact" },
+        { to: "/notify", name: "Notifications" },
+      ]}
+      logo={logo}
+    />
     <slot />
   </body>
 </html>
+
+
+

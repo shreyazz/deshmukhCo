@@ -1,12 +1,238 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import ServiceCard from "../components/ServiceCard.astro";
+import company from "../assets/company.svg";
+import fda from "../assets/fda.svg";
+import industry from "../assets/industry.svg";
+import labour from "../assets/labour.svg";
+import payroll from "../assets/payroll.svg";
+import tax from "../assets/tax.svg";
+import trade from "../assets/trade.svg";
+import Title from "../components/Title.astro";
+import SingleService from "../components/SingleService.astro";
+
+interface servicesInterface {
+  icon: string;
+  title: string;
+  desc: string;
+}
+
+const services: Array<servicesInterface> = [
+  {
+    icon: company,
+    title: "Company Law",
+    desc: "We can help your business obtain industry registration to avail a host of benefits.",
+  },
+  {
+    icon: industry,
+    title: "Industry Law",
+    desc: "We can help your business obtain industry registration to avail a host of benefits.",
+  },
+  {
+    icon: labour,
+    title: "Labour Law",
+    desc: "We can help your business obtain industry registration to avail a host of benefits.",
+  },
+  {
+    icon: payroll,
+    title: "Payroll Management",
+    desc: "We can help your business obtain industry registration to avail a host of benefits.",
+  },
+  {
+    icon: fda,
+    title: "FDA Consultants",
+    desc: "We can help your business obtain industry registration to avail a host of benefits.",
+  },
+  {
+    icon: tax,
+    title: "Tax Consultants",
+    desc: "We can help your business obtain industry registration to avail a host of benefits.",
+  },
+  {
+    icon: trade,
+    title: "Trade Licence",
+    desc: "We can help your business obtain industry registration to avail a host of benefits.",
+  },
+];
+
+interface singleServiceInterface {
+  to: string;
+  text: string;
+}
+
+const singleServices: Array<singleServiceInterface> = [
+  // company law starts
+  {
+    to: "/companylaw",
+    text: "Public Limited Company Registration",
+  },
+  {
+    to: "/companylaw",
+    text: "Private Limited Company Registration",
+  },
+  {
+    to: "/companylaw",
+    text: "OPT Company Registration",
+  },
+  {
+    to: "/companylaw",
+    text: "LLP Firm Registration",
+  },
+  {
+    to: "/companylaw",
+    text: "Patnership Firm Registration",
+  },
+  {
+    to: "/companylaw",
+    text: "Proprietorship Firm Registration",
+  },
+  {
+    to: "/companylaw",
+    text: "HUF Firm Registration",
+  },
+  {
+    to: "/companylaw",
+    text: "Society Registration",
+  },
+  {
+    to: "/companylaw",
+    text: "Trust Registration",
+  },
+  // company law ends
+  // INDUSTRIAL LAW CONSULTANTS
+  {
+    to: "/industrylaw",
+    text: "Industrial Property Registration",
+  },
+  {
+    to: "/industrylaw",
+    text: "Factory License Registration",
+  },
+  {
+    to: "/industrylaw",
+    text: "Udyam Adhar Registration",
+  },
+  {
+    to: "/industrylaw",
+    text: "Udyog Adhar Registration",
+  },
+  {
+    to: "/industrylaw",
+    text: "MSME Registration",
+  },
+  // INDUSTRIAL LAW CONSULTANTS ends
+  // labour law starts
+  {
+    to: "/labourlaw",
+    text: "Labour Law Consultants",
+  },
+  {
+    to: "/labourlaw",
+    text: "Provident Fund (PF) Registration",
+  },
+  // labour law starts ends
+  {
+    to: "/payroll",
+    text: "Payroll Management Consultants",
+  },
+  {
+    to: "/fda",
+    text: "Food/Drugs Administration Consultants",
+  },
+  {
+    to: "/tax",
+    text: "Taxation License Consultants",
+  },
+  {
+    to: "/trade",
+    text: "Trade License Consultants",
+  },
+];
 ---
 
 <Layout title="Deshmukh & Co.">
-  <main>
-    <h1 class="text-xl">
-      Welcome to the project of <span class="text-blue-700 font-bold"
-        >Deshmukh & Co.</span>
-    </h1>
-  </main>
+  <section class="home-wrapper px-16 h-[90vh]">
+    <div
+      class="hero-content z-10 absolute text-pureWhite top-[50%] translate-y-[-30%]"
+    >
+      <h1 class="text-7xl font-semibold font-serif w-[80%]">
+        Legal Consultants with High Integrity & Devotion
+      </h1>
+      <p class="text-xl font-sans font-medium pt-7 pb-9">
+        The best centre for all legal consultations
+      </p>
+      <button
+        class="bg-gold p-3 text-black text-base capitalize font-medium rounded-sm hover:scale-105 ease-in transition-all"
+        >Contact Us</button
+      >
+    </div>
+  </section>
+  <section class="py-12 px-14 lg:px-14 md:px-14 text-center" id="services">
+    <Title
+      sansTitle="Legal Practice Areas"
+      sansColor="text-darkBlue"
+      serifTitle="Our Expertise"
+      serifColor="text-darkBlue"
+    />
+    <div
+      class="service-cards flex items-center justify-between gap-5 flex-row flex-wrap mt-7 lg:grid lg:grid-cols-4 mx-auto md:grid md:grid-cols-3"
+      id="service-cards"
+    >
+      <p
+        class="text-darkBlue font-sans text-3xl font-semibold w-60 text-left p-3"
+      >
+        Unmatched Services Unmatched Excellence
+      </p>
+      {
+        services.map((s) => {
+          return <ServiceCard icon={s.icon} title={s.title} desc={s.desc} />;
+        })
+      }
+    </div>
+  </section>
+  <section
+    id="expertise"
+    class="bg-darkBlue h-auto w-full text-center py-12 px-14"
+  >
+    <Title
+      sansTitle="Services Offered"
+      sansColor="text-pureWhite"
+      serifColor="text-gold"
+      serifTitle="Our Services"
+    />
+    <div
+      class="single-services mt-7 grid lg:grid-cols-4 gap-5 mx-auto md:grid-cols-2 sm:grid-cols-2"
+    >
+      {
+        singleServices.map((ss) => {
+          return <SingleService to={ss.to} text={ss.text} />;
+        })
+      }
+    </div>
+  </section>
+  <section
+    id="testimonials"
+    class="testimonial-wrapper bg-pureWhite h-auto w-full text-center py-12 px-14"
+  >
+  </section>
+  <section
+    id="contact"
+    class="contact-wrapper h-[70vh] w-full text-center px-14 py-16"
+  >
+    <Title
+      sansColor="text-pureWhite"
+      sansTitle="Get In Touch"
+      serifColor="text-gold"
+      serifTitle="Consultation"
+    />
+  </section>
 </Layout>
+
+<style>
+  .home-wrapper {
+    background-image: url("../assets/mainBg.jpg");
+  }
+  .contact-wrapper {
+    background-image: url("../assets/contactImg.png");
+  }
+</style>
