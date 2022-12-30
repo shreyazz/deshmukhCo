@@ -1,0 +1,144 @@
+---
+import Layout from "../layouts/Layout.astro";
+import mailImg from "../assets/mail.svg";
+import phoneImg from "../assets/phone.svg";
+import clockImg from "../assets/clock.svg";
+import buildingImg from "../assets/building.svg";
+---
+
+<Layout title="Deshmukh & Co.">
+  <section class="px-16 py-6">
+    <div class="title">
+      <h1 class="font-sans font-medium text-3xl">Contact Us</h1>
+      <h3 class="font-serif font-normal text-xl">
+        Feel free to contact us & we will get back to you as soon as possible.
+      </h3>
+    </div>
+    <div class="contact-form-wrapper flex flex-col w-[50%]">
+      <div class="contact-form py-5 mx-auto w-[100%] mt-7 flex flex-col gap-6">
+        <div class="flex items-center justify-between w-full">
+          <input
+            type="text"
+            name="name"
+            id="name-inp"
+            class="w-[45%] opacity-60 p-2 rounded-sm outline-none border-2 border-darkBlue"
+            placeholder="Name"
+          />
+          <input
+            type="text"
+            name="email"
+            id="email-inp"
+            class="w-[45%] opacity-60 p-2 rounded-sm outline-none border-2 border-darkBlue"
+            placeholder="Email"
+          />
+        </div>
+        <div class="flex items-center justify-between">
+          <input
+            type="text"
+            name="phone"
+            id="phone-inp"
+            class="w-[45%] opacity-60 p-2 rounded-sm outline-none border-2 border-darkBlue"
+            placeholder="Phone Number"
+          />
+          <input
+            type="text"
+            name="subjext"
+            id="subject-inp"
+            class="w-[45%] opacity-60 p-2 rounded-sm outline-none border-2 border-darkBlue"
+            placeholder="Subject"
+          />
+        </div>
+        <textarea
+          name="message"
+          id="message-inp"
+          cols="30"
+          rows="10"
+          placeholder="Message"
+          class="resize-none w-full opacity-60 p-2 rounded-sm outline-none border-2 border-darkBlue"
+        ></textarea>
+        <div class="flex items-center justify-between">
+          <button
+            id="contact-submit-btn"
+            class="bg-gold p-3 w-[48%] text-black text-base capitalize font-normal rounded-sm hover:scale-95 ease-in transition-all"
+            >Send as Email</button
+          >
+          <button
+            id="contact-submit-btn-wa"
+            class="bg-gold p-3 w-[48%] text-black text-base capitalize font-normal rounded-sm hover:scale-95 ease-in transition-all"
+            >Send on WhatsApp</button
+          >
+        </div>
+      </div>
+    </div>
+    <div
+      class="right-contact-section absolute right-0 top-[50%] translate-y-[-40%] h-[50vh] w-[40vw] bg-no-repeat rounded-md hidden lg:flex md:flex flex-col items-start justify-center gap-6 text-pureWhite px-16"
+    >
+      <h1 class="text-2xl mb-5">Contact Information</h1>
+      <p class="flex items-center justify-center gap-2 text-lg">
+        <img
+          src={mailImg}
+          alt="deshmukh&Co Email"
+          class="h-8 w-8"
+        />deshmukh@gmail.com
+      </p>
+      <p class="flex items-center justify-center gap-2 text-lg">
+        <img src={phoneImg} alt="deshmukh&Co Email" class="h-8 w-8" />+91
+        9990000000
+      </p>
+      <p class="flex items-center justify-center gap-2 text-lg">
+        <img src={clockImg} alt="deshmukh&Co Email" class="h-8 w-8" />9:00AM -
+        8:00PM
+      </p>
+      <p class="flex items-start justify-center gap-2 text-lg">
+        <img src={buildingImg} alt="deshmukh&Co Email" class="h-8 w-8" />E-15
+        Opp.Murliwala Sweets, Bombay Hospital Indore Madhya Pradesh - 452010
+      </p>
+    </div>
+  </section>
+
+  <!-- <section
+    id="contact"
+    class="contact-wrapper h-auto w-full text-center px-14 py-16 mb-0 bg-darkBlue"
+  >
+  
+  </section> -->
+</Layout>
+
+<style>
+  .right-contact-section {
+    background-image: url("../assets/contactPageImg.png");
+  }
+</style>
+
+<script>
+  const name = document.getElementById("name-inp") as HTMLInputElement;
+  const email = document.getElementById("email-inp") as HTMLInputElement;
+  const phone = document.getElementById("phone-inp") as HTMLInputElement;
+  const subject = document.getElementById("subject-inp") as HTMLInputElement;
+  const message = document.getElementById("message-inp") as HTMLInputElement;
+
+  const submitBtn = document.getElementById(
+    "contact-submit-btn"
+  ) as HTMLButtonElement;
+  const submitBtnWa = document.getElementById(
+    "contact-submit-btn-wa"
+  ) as HTMLButtonElement;
+  const contactBtn = document.getElementById(
+    "contact-btn"
+  ) as HTMLButtonElement;
+
+  const sendToContact = () => {
+    window.location.href = "/contact";
+  };
+
+  const sendWhatsappMessage = () => {
+    window.location.href = `https://wa.me/+919131713309?text=Name:${name.value}%0D%0AEmail:${email.value}%0D%0APhone:${phone.value}%0D%0Asubject:${subject.value}%0D%0A%0D%0AMessage:%0D%0A${message.value}`;
+  };
+
+  const sendEmail = () => {
+    window.location.href = `mailto:pahuneshreyas@gmail.com?subject=${subject.value}&body=Name:${name.value}%0D%0AEmail:${email.value}%0D%0APhone:${phone.value}%0D%0A%0D%0AMessage:%0D%0A${message.value}`;
+  };
+
+  submitBtn.addEventListener("click", sendEmail);
+  submitBtnWa.addEventListener("click", sendWhatsappMessage);
+</script>
