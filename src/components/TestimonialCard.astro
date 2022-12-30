@@ -1,0 +1,27 @@
+---
+export interface Props{
+    name: string,
+    text: string,
+    image?: string
+}
+
+const {name, text, image} = Astro.props;
+---
+
+<div class="border-2 border-darkBlue rounded-md p-4 flex flex-col items-center justify-center gap-6 h-[400px] w-[900px]">
+    <div class="circle h-9 w-9 rounded-full">{name.charAt(0)}</div>
+    <h1 class="text-2xl font-medium">{name}</h1>
+    <p class="testimonial-text text-lg font-light">{text}</p>
+</div>
+
+<style>
+    div{
+        width: 300px !important;
+    }
+    .testimonial-text{
+        display: -webkit-box;
+        -webkit-line-clamp: 5;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+</style>
