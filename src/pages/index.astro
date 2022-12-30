@@ -10,7 +10,9 @@ import tax from "../assets/tax.svg";
 import trade from "../assets/trade.svg";
 import Title from "../components/Title.astro";
 import SingleService from "../components/SingleService.astro";
+import TestimonialCard from "../components/TestimonialCard.astro";
 
+// services
 interface servicesInterface {
   icon: string;
   title: string;
@@ -55,6 +57,7 @@ const services: Array<servicesInterface> = [
   },
 ];
 
+// single service
 interface singleServiceInterface {
   to: string;
   text: string;
@@ -148,6 +151,46 @@ const singleServices: Array<singleServiceInterface> = [
     text: "Trade License Consultants",
   },
 ];
+
+// testimonial
+interface testimonialInterface {
+  name: string;
+  text: string;
+  image?: string;
+}
+
+const testimonials: Array<testimonialInterface> = [
+  {
+    name: "Akshat Atolia    ",
+    text: `At Deshmukh & Co., You'll find that all work is done with professionalism, quality and in timely manner. All PF related issues were handled with best legal advise and solutions were delivered efficiently.
+Surely a good connect for all your labour law and filing needs`,
+  },
+  {
+    name: "Vikram Bhatnagar",
+    text: `Professional. Efficient. Reliable.
+They understands the client, very knowledgeable and are an expert in their field. Truly a professional and marvellous team. Highly recommend their services.
+Great experience overall.`,
+  },
+  {
+    name: "Hariom Raghuwanshi",
+    text: `We are associated with Deshmukh & Company since 2016. We got proper solutions of our queries. We are getting good & satisfactory services from Mr. Prashant Deshmukh office.
+`,
+  },
+  {
+    name: "Harry Shukla",
+    text: `Really good feel with Deshmukh & Company & Staff, My Shop Act Registration done in the committed time line. I personally recommended for any registration & license services required, please connect with Mr. Deshmukh`,
+  },
+  {
+    name: "Gopal Sharma",
+    text: `My Firm Name is SK Enterprises we have associated with Deshmukh & Company last two year for PF Compliance Working & Monthly Filing & our Staff PF withdrawal working on the time support..
+I recommended to Deshmukh & Co. for PF ESIC Filing & Compliances working.`,
+  },
+  {
+    name: "Prashant Prajapati",
+    text: `I really so happy with Deshmukh & Company & Staff, we are working this Legal Consultancy Firm last 3 year, He is our all Labour Law related quires and matter solved on the time & Professional Tax Return Filing and other legal matter Regular handling..
+Thanks for your services`,
+  },
+];
 ---
 
 <Layout title="Deshmukh & Co.">
@@ -162,7 +205,8 @@ const singleServices: Array<singleServiceInterface> = [
         The best centre for all legal consultations
       </p>
       <button
-        class="bg-gold p-3 text-black text-base capitalize font-medium rounded-sm hover:scale-105 ease-in transition-all"
+      id="contact-btn"
+        class="bg-gold p-3 text-black text-base capitalize font-normal rounded-sm hover:scale-95 ease-in transition-all"
         >Contact Us</button
       >
     </div>
@@ -212,12 +256,84 @@ const singleServices: Array<singleServiceInterface> = [
   </section>
   <section
     id="testimonials"
-    class="testimonial-wrapper bg-pureWhite h-auto w-full text-center py-12 px-14"
+    class="testimonial-wrapper bg-pureWhite h-auto w-full text-center py-12 px-14 overflow-y-hidden overflow-x-scroll my-0"
   >
+    <Title
+      sansTitle="What Clients Say"
+      sansColor="text-darkBlue"
+      serifTitle="Our Testimonials"
+      serifColor="text-darkBlue"
+    />
+    <!--  
+    <div class="mt-7 testimonials flex flex-row w-[100vw] overflow-x-hidden overflow-y-scroll whitespace-pre-line justify-between gap-5">
+      {testimonials.map((t) => {
+        return <TestimonialCard name={t.name} text={t.text}/>
+      })}
+    </div> -->
+
+    <div
+      class="flex items-center justify-center w-full h-full py-24 sm:py-8 px-4"
+    >
+      <div class="w-full relative flex items-center justify-center">
+        <button
+          aria-label="slide backward"
+          class="absolute z-30 left-0 ml-10 focus:outline-none focus:bg-gray-400 focus:ring-2 focus:ring-offset-2 focus:ring-gray-400 cursor-pointer"
+          id="prev"
+        >
+          <svg
+            class="dark:text-gray-900"
+            width="8"
+            height="14"
+            viewBox="0 0 8 14"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M7 1L1 7L7 13"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"></path>
+          </svg>
+        </button>
+        <div class="w-full h-full mx-auto overflow-x-hidden overflow-y-hidden">
+          <div
+            id="slider"
+            class="h-full flex lg:gap-8 md:gap-6 gap-14 items-center justify-start transition ease-out duration-700"
+          >
+            {testimonials.map((t) => {
+              return <TestimonialCard name={t.name} text={t.text}/>
+            })}
+            </div>
+            </div>
+          </div>
+        </div>
+        <button
+          aria-label="slide forward"
+          class="absolute z-30 right-0 mr-10 focus:outline-none focus:bg-gray-400 focus:ring-2 focus:ring-offset-2 focus:ring-gray-400"
+          id="next"
+        >
+          <svg
+            class="dark:text-gray-900"
+            width="8"
+            height="14"
+            viewBox="0 0 8 14"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M1 1L7 7L1 13"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"></path>
+          </svg>
+        </button>
   </section>
+
   <section
     id="contact"
-    class="contact-wrapper h-[70vh] w-full text-center px-14 py-16"
+    class="contact-wrapper h-auto w-full text-center px-14 py-16 mb-0 bg-darkBlue"
   >
     <Title
       sansColor="text-pureWhite"
@@ -225,6 +341,60 @@ const singleServices: Array<singleServiceInterface> = [
       serifColor="text-gold"
       serifTitle="Consultation"
     />
+    <div class="contact-form p-5 mx-auto w-[70%] mt-7 flex flex-col gap-6">
+      <div class="flex items-center justify-between w-full">
+        <input
+          type="text"
+          name="name"
+          id="name-inp"
+          class="w-[45%] opacity-60 p-2 rounded-sm outline-none"
+          placeholder="Name"
+        />
+        <input
+          type="text"
+          name="email"
+          id="email-inp"
+          class="w-[45%] opacity-60 p-2 rounded-sm outline-none"
+          placeholder="Email"
+        />
+      </div>
+      <div class="flex items-center justify-between">
+        <input
+          type="text"
+          name="phone"
+          id="phone-inp"
+          class="w-[45%] opacity-60 p-2 rounded-sm outline-none"
+          placeholder="Phone Number"
+        />
+        <input
+          type="text"
+          name="subjext"
+          id="subject-inp"
+          class="w-[45%] opacity-60 p-2 rounded-sm outline-none"
+          placeholder="Subject"
+        />
+      </div>
+      <textarea
+        name="message"
+        id="message-inp"
+        cols="30"
+        rows="10"
+        placeholder="Message"
+        class="resize-none w-full opacity-60 p-2 rounded-sm outline-none"
+      ></textarea>
+      <div class="flex items-center justify-between">
+        <button
+          id="contact-submit-btn"
+          class="bg-gold p-3 w-[48%] text-black text-base capitalize font-normal rounded-sm hover:scale-95 ease-in transition-all"
+          >Send as Email</button
+        >
+        <button
+          id="contact-submit-btn-wa"
+          class="bg-gold p-3 w-[48%] text-black text-base capitalize font-normal rounded-sm hover:scale-95 ease-in transition-all"
+          >Send on WhatsApp</button
+        >
+      </div>
+    </div>
   </section>
 </Layout>
 
@@ -234,5 +404,54 @@ const singleServices: Array<singleServiceInterface> = [
   }
   .contact-wrapper {
     background-image: url("../assets/contactImg.png");
+    background-repeat: no-repeat;
   }
 </style>
+
+<script>
+  const name = document.getElementById("name-inp") as HTMLInputElement;
+  const email = document.getElementById("email-inp") as HTMLInputElement;
+  const phone = document.getElementById("phone-inp") as HTMLInputElement;
+  const subject = document.getElementById("subject-inp") as HTMLInputElement;
+  const message = document.getElementById("message-inp") as HTMLInputElement;
+
+  const submitBtn = document.getElementById(
+    "contact-submit-btn"
+  ) as HTMLButtonElement;
+  const submitBtnWa = document.getElementById(
+    "contact-submit-btn-wa"
+  ) as HTMLButtonElement;
+  const contactBtn = document.getElementById('contact-btn') as HTMLButtonElement;
+
+  const sendToContact = () => {
+    window.location.href = "/contact"
+  }
+
+  const sendWhatsappMessage = () => {
+    window.location.href = `https://wa.me/+919131713309?text=Name:${name.value}%0D%0AEmail:${email.value}%0D%0APhone:${phone.value}%0D%0Asubject:${subject.value}%0D%0A%0D%0AMessage:%0D%0A${message.value}`;
+  };
+
+  const sendEmail = () => {
+    window.location.href = `mailto:pahuneshreyas@gmail.com?subject=${subject.value}&body=Name:${name.value}%0D%0AEmail:${email.value}%0D%0APhone:${phone.value}%0D%0A%0D%0AMessage:%0D%0A${message.value}`;
+  };
+
+  submitBtn.addEventListener("click", sendEmail);
+  submitBtnWa.addEventListener("click", sendWhatsappMessage);
+  contactBtn.addEventListener('click', sendToContact)
+  let defaultTransform = 0;
+  function goNext() {
+    defaultTransform = defaultTransform - 398;
+    var slider = document.getElementById("slider") as HTMLDivElement;
+    if (Math.abs(defaultTransform) >= slider.scrollWidth / 1.7)
+      defaultTransform = 0;
+    slider.style.transform = "translateX(" + defaultTransform + "px)";
+  }
+  next.addEventListener("click", goNext);
+  function goPrev() {
+    var slider = document.getElementById("slider");
+    if (Math.abs(defaultTransform) === 0) defaultTransform = 0;
+    else defaultTransform = defaultTransform + 398;
+    slider.style.transform = "translateX(" + defaultTransform + "px)";
+  }
+  prev.addEventListener("click", goPrev);
+</script>
