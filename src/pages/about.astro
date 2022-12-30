@@ -1,0 +1,126 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Title from "../components/Title.astro";
+import paperImg from '../assets/aboutPage.png'
+import experienceBox from '../assets/experienceBox.png'
+import checkbox from '../assets/checkbox.png'
+---
+
+<Layout title="Deshmukh & Co.">
+  <section class="about-wrapper px-16 h-[90vh] bg-no-repeat">
+    <div
+      class="hero-content z-10 absolute text-pureWhite top-[50%] translate-y-[-30%]"
+    >
+      <p class="text-xl font-sans font-medium">Reassuring legal answers</p>
+      <h1 class="text-7xl font-semibold font-serif w-[80%] pt-7 pb-9">
+        One stop to all your taxation and legal consultancy services
+      </h1>
+      <button
+        id="contact-btn"
+        class="bg-gold p-3 text-black text-base capitalize font-normal rounded-sm hover:scale-95 ease-in transition-all"
+        >Contact Us</button
+      >
+    </div>
+  </section>
+  <section class="px-16 text-center pb-5">
+    <Title
+      sansColor="text-darkBlue"
+      sansTitle="About Us"
+      serifColor="text-darkBlue"
+      serifTitle="Who are we"
+    />
+    <h3 class="font-serif text-3xl mt-3">
+      Over <span class="text-gold font-semibold"> 10+ Years</span> Experience Helping Our People.
+    </h3>
+    <div class="flex flex-row justify-between items-center my-10">
+        <div class="w-[60%] text-left">
+
+      <p>
+        
+        Deshmukh & Co. has immense experience and specializes in dealing with
+        matters relating to Statutory Compliances Services (Company
+        Law/Secretaries Work/Industrial & Labour Laws /HR-Payroll/Audit &
+        Accounting), Provident Fund & ESIC, Tax Consultation, Trade Licensing
+        etc.
+      </p>
+      <p class="my-4">
+        Headquartered in Indore and a network of Associates representing us in
+        other major cities of India, Deshmukh & Co. has been in the forefront of
+        the corporate culture, having advised and represented corporate clients
+        from across the country. We love what we do, it's who we are.
+      </p>
+
+      <p>
+        Our goal is to create work that is authentic. Solutions that are
+        exploratory, educational and inspirational. We work with the belief that
+        the process and collaboration should be as exciting and fun as the end
+        result.
+      </p>
+
+      <p class="my-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, assumenda dolorum! Nostrum odit, assumenda labore maiores rem error incidunt soluta.</p>
+      <p class="my-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, assumenda dolorum! Nostrum odit, assumenda labore maiores rem error incidunt soluta.</p>
+    </div>
+
+      <img src={paperImg} alt="who are we image" class="h-[30rem] w-[30rem]"/>
+    </div>
+  </section>
+  <section id="experience" class="experience-wrapper px-16 py-10 h-auto bg-no-repeat text-center text-pureWhite">
+    <Title sansColor="text-pureWhite" sansTitle="Experience" serifColor="text-gold" serifTitle="Worked in"/>
+    <div class="flex items-center justify-center gap-14 my-7">
+    <img src={experienceBox} alt="" class="h-[40%] w-[40%]">
+    <div class="flex flex-col gap-4 items-start">
+        <p class="flex items-center justify-center gap-2"><img src={checkbox} alt="" class="h-7 w-7">PVT LTD COMPANY REGISTRATION</p>
+        <p class="flex items-center justify-center gap-2"><img src={checkbox} alt="" class="h-7 w-7">PARTNERSHIP REGISTRATION</p>
+        <p class="flex items-center justify-center gap-2"><img src={checkbox} alt="" class="h-7 w-7">PUBLIC LTD COMPANY REGISTRATION</p>
+        <p class="flex items-center justify-center gap-2"><img src={checkbox} alt="" class="h-7 w-7">COMPANY COMPLIANCE FOR LLP</p>
+        <p class="flex items-center justify-center gap-2"><img src={checkbox} alt="" class="h-7 w-7">INCOME TAX FILING</p>
+        <p class="flex items-center justify-center gap-2"><img src={checkbox} alt="" class="h-7 w-7">GST REGISTRATION</p>
+        <p class="flex items-center justify-center gap-2"><img src={checkbox} alt="" class="h-7 w-7">GST RETURN</p>
+        <p class="flex items-center justify-center gap-2"><img src={checkbox} alt="" class="h-7 w-7">PARTNERSHIP REGISTRATION</p>
+    </div>
+</div>
+
+  </section>
+  <section id="succcess" class="success-wrapper  px-16 py-10 h-auto text-center">
+    <Title sansColor="text-darkBlue" sansTitle="Our Success Journey" serifColor="text-darkBlue" serifTitle="Why Choose Us"/>
+    <div class="success-circles flex justify-center items-center gap-36 my-16 flex-wrap">
+        <div class="circle flex flex-col w-[fit-content] items-center">
+            <h1 class="border-2 h-28 w-28 flex items-center justify-center rounded-full border-gold text-2xl font-medium  hover:bg-gold hover:text-pureWhite ease-in transition-all cursor-pointer">
+                300+
+            </h1>
+            <p class="mt-4">Total Clients</p>
+        </div>
+        <div class="circle flex flex-col w-[fit-content] items-center">
+            <h1 class="border-2 h-28 w-28 flex items-center justify-center rounded-full border-gold text-2xl font-medium  hover:bg-gold hover:text-pureWhite ease-in transition-all cursor-pointer">
+                10+
+            </h1>
+            <p class="mt-4">Years of Experience</p>
+        </div>
+        <div class="circle flex flex-col w-[fit-content] items-center">
+            <h1 class="border-2 h-28 w-28 flex items-center justify-center rounded-full border-gold text-2xl font-medium  hover:bg-gold hover:text-pureWhite ease-in transition-all cursor-pointer">
+                5000+
+            </h1>
+            <p class="mt-4">Payroll Management</p>
+        </div>
+        <div class="circle flex flex-col w-[fit-content] items-center">
+            <h1 class="border-2 h-28 w-28 flex items-center justify-center rounded-full border-gold text-2xl font-medium hover:bg-gold hover:text-pureWhite ease-in transition-all cursor-pointer">
+                120+
+            </h1>
+            <p class="mt-4">Demo Feature</p>
+        </div>
+    </div>
+  </section>
+</Layout>
+
+<!-- total clients: 300+ -->
+<!-- years in industry: 10+  -->
+<!-- payroll mgmt : 5000+ emps w diff employer  -->
+
+<style>
+  .about-wrapper {
+    background-image: url("../assets/aboutPageImg.png");
+  }
+  .experience-wrapper{
+    background-image: url('../assets/experienceImg.png');
+  }
+</style>
