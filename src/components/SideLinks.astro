@@ -1,0 +1,85 @@
+---
+import Layout from "../layouts/Layout.astro";
+import company from "../assets/company.svg";
+import fda from "../assets/fda.svg";
+import industry from "../assets/industry.svg";
+import labour from "../assets/labour.svg";
+import payroll from "../assets/payroll.svg";
+import tax from "../assets/tax.svg";
+import trade from "../assets/trade.svg";
+import arrowRight from "../assets/arrowRight.svg";
+
+interface servicesInterface {
+  icon: string;
+  title: string;
+}
+
+const services: Array<servicesInterface> = [
+  {
+    icon: company,
+    title: "Company Law",
+  },
+  {
+    icon: industry,
+    title: "Industry Law",
+  },
+  {
+    icon: labour,
+    title: "Labour Law",
+  },
+  {
+    icon: payroll,
+    title: "Payroll Management",
+  },
+  {
+    icon: fda,
+    title: "FDA Consultants",
+  },
+  {
+    icon: tax,
+    title: "Tax Consultants",
+  },
+  {
+    icon: trade,
+    title: "Trade Licence",
+  },
+];
+---
+
+  {
+    services.map((s) => {
+      return (
+        
+        <div class="flex w-full cursor-pointer ease-in transition-all p-2 side-link ">
+          <div class="flex items-center justify-center bg-offWhite p-4 mr-1 rounded-sm">
+            <img src={s.icon} alt="" class="h-9 w-9" />
+          </div>
+          <div class="flex items-center justify-between bg-offWhite p-4 gap-3 rounded-sm w-full">
+            <a href="/companylaw">{s.title}</a>
+            <img
+              src={arrowRight}
+              alt=""
+              class="h-7 w-7 ease-in transition-all side-link-arrow"
+            />
+          </div>
+        </div>
+      );
+    })
+  }
+
+<style>
+    .side-link:hover .side-link-arrow {
+      transform: translateX(6px);
+      transition: all 0.4s ease;
+    }
+  
+    .side-link > div{
+      transition: all 0.4s ease;
+  
+    }
+    .side-link:hover > div {
+      background: #132958;
+      color: white;
+      transition: all 0.4s ease;
+    }
+  </style>
