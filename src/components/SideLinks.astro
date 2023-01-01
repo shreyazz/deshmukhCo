@@ -12,45 +12,68 @@ import arrowRight from "../assets/arrowRight.svg";
 interface servicesInterface {
   icon: string;
   title: string;
+  to: string;
 }
 
 const services: Array<servicesInterface> = [
   {
     icon: company,
     title: "Company Law",
+    to: "/companylaw",
   },
   {
     icon: industry,
     title: "Industry Law",
+    to: "/industrylaw",
   },
   {
     icon: labour,
     title: "Labour Law",
+    to: "/labourlaw",
   },
+
   {
     icon: payroll,
     title: "Payroll Management",
+    to: "/payroll",
   },
   {
     icon: fda,
     title: "FDA Consultants",
+    to: "/fda",
   },
   {
     icon: tax,
     title: "Tax Consultants",
+    to: "/tax",
   },
   {
     icon: trade,
     title: "Trade Licence",
+    to: "/trade",
   },
 ];
 ---
 
-  {
-    services.map((s) => {
-      return (
-        
-        <div class="flex w-full cursor-pointer ease-in transition-all p-2 side-link ">
+{
+  services.map((s) => {
+    return (
+      <a href={s.to} class="side-link rounded-sm flex items-center justify-between p-4 gap-5 bg-offWhite">
+        <div class="bg-[#0000] flex items-center gap-4">
+          <img src={s.icon} alt="" class="h-9 w-9"  />
+          {s.title}{" "} 
+        </div>
+          <img
+          src={arrowRight}
+          alt=""
+          class="h-7 w-7 ease-in transition-all side-link-arrow"
+        />
+      </a>
+    );
+  })
+}
+
+<!--  <div class="flex w-full cursor-pointer ease-in transition-all p-2 side-link">
           <div class="flex items-center justify-center bg-offWhite p-4 mr-1 rounded-sm">
             <img src={s.icon} alt="" class="h-9 w-9" />
           </div>
@@ -62,24 +85,20 @@ const services: Array<servicesInterface> = [
               class="h-7 w-7 ease-in transition-all side-link-arrow"
             />
           </div>
-        </div>
-      );
-    })
-  }
+        </div> -->
 
 <style>
-    .side-link:hover .side-link-arrow {
-      transform: translateX(6px);
-      transition: all 0.4s ease;
-    }
-  
-    .side-link > div{
-      transition: all 0.4s ease;
-  
-    }
-    .side-link:hover > div {
-      background: #132958;
-      color: white;
-      transition: all 0.4s ease;
-    }
-  </style>
+  .side-link:hover .side-link-arrow {
+    transform: translateX(6px);
+    transition: all 0.4s ease;
+  }
+
+  .side-link  {
+    transition: all 0.4s ease;
+  }
+  .side-link:hover {
+    background: #132958;
+    color: white;
+    transition: all 0.4s ease;
+  }
+</style>
