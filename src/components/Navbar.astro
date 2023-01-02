@@ -27,10 +27,10 @@ const { navLinks, logo } = Astro.props;
     <div class="ham-2 h-1 bg-darkBlue w-8 rounded-md"></div>
     <div class="ham-3 h-1 bg-darkBlue w-10 rounded-md"></div>
   </div>
-  <div id="menu" class="z-[100] menu lg:hidden md:hidden flex flex-col items-start justify-start gap-1 px-5 py-5 border-2 border-gold bg-offWhite rounded-md shadow-md absolute right-[15%] top-[5%]">
+  <div id="menu" class="z-[100] menu lg:hidden md:hidden invisible flex flex-col items-start justify-start gap-1 px-5 py-5 border-2 border-gold bg-offWhite rounded-md shadow-md absolute right-[15%] top-[5%]">
     {
       navLinks.map((navItem) => (
-        <a href={navItem.to} class="hover:text-gold ease-in transition-all">
+        <a href={navItem.to} class="hover:text-gold">
           <p>{navItem.name}</p>{" "}
         </a>
       ))
@@ -43,6 +43,6 @@ const { navLinks, logo } = Astro.props;
   const ham = document.getElementById('ham') as HTMLDivElement;
   const menu = document.getElementById('menu') as HTMLDivElement;
   ham.addEventListener('click', () => {
-    menu.classList.toggle('hidden')
+    menu.classList.toggle('invisible')
   })
 </script>
