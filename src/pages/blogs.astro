@@ -1,0 +1,48 @@
+---
+import Layout from "../layouts/Layout.astro";
+const response = await fetch('https://dsc-api.vercel.app/api/blog/getAll');
+const data = await response.json();
+const blogs = data.blogs;
+
+---
+
+
+<Layout title="Deshmukh & Co">
+    <section class="blog-wrapper px-16 h-[90vh] bg-no-repeat py-0">
+        <div
+          class="hero-content z-10 absolute text-pureWhite top-[50%] translate-y-[-30%]"
+        >
+          <p class="text-xl font-sans font-medium">Our Blog</p>
+          <h1 class="text-7xl font-semibold font-serif w-[80%] pt-7 pb-9">
+            Get to know more about law by reading our legal blogs
+          </h1>
+          <button
+            id="contact-btn"
+            class="bg-gold p-3 text-black text-base capitalize font-normal rounded-sm hover:scale-95 ease-in transition-all"
+            >Contact Us</button
+          >
+        </div>
+      </section>
+    <section class="px-16 pb-5 pt-2 text-black grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
+        {
+            blogs.map((b: any) => {
+                return <div class="p-4 flex flex-col gap-3">
+                  <img src={b.image} alt="" class="h-[100%] w-[100%] rounded-md">
+                  <span class="px-2 py-1 border border-gold w-[fit-content] rounded-md text-[#4242429e]">{b.category}</span>
+                  <h2 class="text-2xl text-darkBlue">{b.title}</h2>
+                  <a href={`/blogs/${b._id}`}>Read More...</a>
+
+                  </div>
+            })
+        }
+    </section>
+</Layout>
+
+
+
+<style>
+    .blog-wrapper {
+      background-image: url("../assets/blogPage.webp");
+    }
+   
+  </style>
