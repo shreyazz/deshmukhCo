@@ -1,12 +1,48 @@
 ---
 import footerLogo from "../assets/logo.svg";
+interface servicesInterface {
+  title: string;
+  to: string;
+}
+
+const services: Array<servicesInterface> = [
+  {
+    title: "Company Law",
+    to: "/companylaw",
+  },
+  {
+    title: "Industry Law",
+    to: "/industrylaw",
+  },
+  {
+    title: "Labour Law",
+    to: "/labourlaw",
+  },
+
+  {
+    title: "Payroll Management",
+    to: "/payroll",
+  },
+  {
+    title: "FDA Consultants",
+    to: "/fda",
+  },
+  {
+    title: "Tax Consultants",
+    to: "/tax",
+  },
+  {
+    title: "Trade Licence",
+    to: "/trade",
+  },
+];
 ---
 
 <footer
-  class="bg-darkBlue px-14 py-7 "
+  class="bg-darkBlue px-4 md:px-14 py-7 "
 >
 <div
-class="flex text-pureWhite justify-between flex-wrap items-start gap-5"
+class="flex flex-col md:flex-row text-pureWhite justify-between flex-wrap items-start gap-5"
 >
 
   <div class="logo-footer flex flex-col gap-5">
@@ -32,13 +68,10 @@ class="flex text-pureWhite justify-between flex-wrap items-start gap-5"
   </div>
   <div class="services-footer flex flex-col gap-3">
     <h3 class="text-xl">Services</h3>
-    <a href="">Company Law Consultants</a>
-    <a href=""> Industry Law Consultants</a>
-    <a href=""> Labour Law Consultants</a>
-    <a href=""> Payroll Management Consultants</a>
-    <a href=""> FDA Consultants</a>
-    <a href=""> Taxation Consultants</a>
-    <a href=""> Trade License Consultants</a>
+    {services.map((s) => {
+      return <a href={s.to}>{s.title}</a>
+    })}
+    
   </div>
   <div class="socials-footer">
     <h3 class="text-xl">Follow Us</h3>

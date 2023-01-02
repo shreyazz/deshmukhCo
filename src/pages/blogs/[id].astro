@@ -19,25 +19,24 @@ const { post } = Astro.props;
 ---
 
 <Layout title="Deshmukh & Co">
-  <section class="px-16 pb-5 pt-2 text-black">
+  <section class="px-4 md:px-16 pb-5 pt-2 text-black">
     <div class="mt-3 mb-5">
       <a href="/blogs" class="mt-3 p-2 bg-[#3d3d3d] text-pureWhite rounded-md"
         >Go Back</a
       >
     </div>
-
     {
       post.image ? (
         <img
           src={post.image}
           alt={`Deshmukh & Co: Blog ${post.title}`}
-          class="h-[50vh] w-full mb-5 rounded-md mt-3"
+          class="h-[20vh] md:h-[50vh] w-full mb-5 rounded-md mt-3"
         />
       ) : (
         <img
           src={defaultBlogImg}
           alt=""
-          class="h-[50vh] w-full mb-5 rounded-md mt-3"
+          class="h-[20vh] md:h-[50vh] w-full mb-5 rounded-md mt-3"
         />
       )
     }

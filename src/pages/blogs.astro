@@ -9,12 +9,12 @@ import defaultBlogImg from '../assets/defalutBanner.webp'
 
 
 <Layout title="Deshmukh & Co">
-    <section class="blog-wrapper px-16 h-[90vh] bg-no-repeat py-0">
+    <section class="blog-wrapper px-4 md:px-16 h-[90vh] bg-repeat-y bg-darkBlue md:bg-no-repeat py-0">
         <div
-          class="hero-content z-10 absolute text-pureWhite top-[50%] translate-y-[-30%]"
+        class="hero-content z-10 absolute text-pureWhite top-[42%] md:top-[40%] translate-y-[-30%]"
         >
           <p class="text-xl font-sans font-medium">Our Blog</p>
-          <h1 class="text-7xl font-semibold font-serif w-[80%] pt-7 pb-9">
+          <h1 class="text-5xl md:text-7xl font-semibold font-serif w-[95%] my-9">
             Get to know more about law by reading our legal blogs
           </h1>
           <button
@@ -24,7 +24,7 @@ import defaultBlogImg from '../assets/defalutBanner.webp'
           >
         </div>
       </section>
-    <section class="px-16 pb-5 pt-2 text-black grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
+    <section class="px-4 md:px-16 pb-5 pt-2 text-black grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
         {
             blogs.map((b: any) => {
                 return <div class="p-4 flex flex-col gap-3 ">
