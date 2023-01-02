@@ -1,4 +1,7 @@
 ---
+import Layout from "../../layouts/Layout.astro";
+import defaultBlogImg from "../../assets/defalutBanner.webp";
+
 export async function getStaticPaths() {
   const response = await fetch("https://dsc-api.vercel.app/api/blog/getAll");
   const data = await response.json();
@@ -15,8 +18,36 @@ const { id } = Astro.params;
 const { post } = Astro.props;
 ---
 
-<body>
-  <h1>{id}: {post.title}</h1>
-  <h2>Category: {post.category}</h2>
-  <img src={post.image} alt="">
-</body>
+<Layout title="Deshmukh & Co">
+  <section class="px-16 pb-5 pt-2 text-black">
+    <div class="mt-3 mb-5">
+      <a href="/blogs" class="mt-3 p-2 bg-[#3d3d3d] text-pureWhite rounded-md"
+        >Go Back</a
+      >
+    </div>
+
+    {
+      post.image ? (
+        <img
+          src={post.image}
+          alt={`Deshmukh & Co: Blog ${post.title}`}
+          class="h-[50vh] w-full mb-5 rounded-md mt-3"
+        />
+      ) : (
+        <img
+          src={defaultBlogImg}
+          alt=""
+          class="h-[50vh] w-full mb-5 rounded-md mt-3"
+        />
+      )
+    }
+    <h1 class="text-3xl text-darkBlue mb-2">{post.title}</h1>
+    <div class="flex gap-5 text-[#7a7a7abf]">
+      <span>{new Date(post.date).toLocaleDateString()}</span>
+      <span>#{post.category}</span>
+    </div>
+    <p class="mt-5 text-[#171717]">
+      {post.body}
+    </p>
+  </section>
+</Layout>
