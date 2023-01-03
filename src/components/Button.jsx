@@ -1,4 +1,3 @@
-import {useState} from 'react'
 const response = await fetch('https://dsc-api.vercel.app/api/blog/getAll');
 const data = await response.json();
 import defaultBlogImg from '../assets/defalutBanner.webp'
