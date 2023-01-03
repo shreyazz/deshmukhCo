@@ -4,9 +4,8 @@ const response = await fetch('https://dsc-api.vercel.app/api/blog/getAll');
 const data = await response.json();
 const blogs = data.blogs;
 import defaultBlogImg from '../assets/defalutBanner.webp'
-
+import Button from "../components/Button";
 ---
-
 
 <Layout title="Deshmukh & Co">
     <section class="blog-wrapper px-4 md:px-16 h-[90vh] bg-repeat-y bg-darkBlue md:bg-pureWhite md:bg-no-repeat py-0">
@@ -25,6 +24,13 @@ import defaultBlogImg from '../assets/defalutBanner.webp'
         </div>
       </section>
     <section class="px-4 md:px-16 pb-5 pt-2 text-black grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
+      <Button client:visible>
+      </Button>
+</section>
+
+    
+
+      <!-- <section class="px-4 md:px-16 pb-5 pt-2 text-black grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
         {
             blogs.map((b: any) => {
                 return <div class="p-4 flex flex-col gap-3 ">
@@ -35,7 +41,7 @@ import defaultBlogImg from '../assets/defalutBanner.webp'
                   </div>
             })
         }
-    </section>
+    </section> -->
 </Layout>
 
 
