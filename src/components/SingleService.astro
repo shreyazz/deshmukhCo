@@ -1,27 +1,30 @@
 ---
-import arrowRight from '../assets/arrowRight.svg'
-export interface Props{
-    to: string,
-    text: string
+import arrowRight from "../assets/arrowRight.svg";
+export interface Props {
+  to: string;
+  text: string;
 }
 
-const { to, text} = Astro.props
+const { to, text } = Astro.props;
 ---
 
-<a href={to} class="bg-pureWhite p-4 w-72 flex items-center justify-between text-left rounded-md text-lg">
-    {text}
-    <img src={arrowRight} alt="single service arrow" class="h-6 w-6">
+<a
+  href={to}
+  class="bg-pureWhite p-4 w-80 flex items-center justify-between text-left rounded-md text-base"
+>
+  {text}
+  <div class="text-right flex items-start justify-end">
+    <img src={arrowRight} alt="single service arrow" class="h-6 w-6" />
+  </div>
 </a>
 
-
-
 <style>
-    img{
-        transition: all 0.4s ease;
-    }
+  img {
+    transition: all 0.4s ease;
+  }
 
-    a:hover img{
-        transform: translateX(6px);
-        transition: all 0.4s ease;
-    }
+  a:hover img {
+    transform: translateX(6px);
+    transition: all 0.4s ease;
+  }
 </style>
