@@ -22,38 +22,33 @@ interface servicesInterface {
 const services: Array<servicesInterface> = [
   {
     icon: company,
-    title: "Company Law",
+    title: "Industry Law and Compliance",
     desc: "We can help your business obtain industry registration to avail a host of benefits.",
   },
   {
     icon: industry,
-    title: "Industry Law",
-    desc: "We can help your business obtain industry registration to avail a host of benefits.",
-  },
-  {
-    icon: labour,
-    title: "Labour Law",
-    desc: "We can help your business obtain industry registration to avail a host of benefits.",
+    title: "Labour Law and Compliance",
+    desc: "We can help your business with labour laws and compliances and utilize a batch of benefits.",
   },
   {
     icon: payroll,
-    title: "Payroll Management",
-    desc: "We can help your business obtain industry registration to avail a host of benefits.",
+    title: "Payroll Management and Services",
+    desc: "We can help your business with managing the payrolls of your employees.",
   },
   {
     icon: fda,
-    title: "FDA Consultants",
-    desc: "We can help your business obtain industry registration to avail a host of benefits.",
+    title: "Company Law and Compliance",
+    desc: "We can help you stay laywfully correct and safegaurd your company.",
   },
   {
     icon: tax,
-    title: "Tax Consultants",
-    desc: "We can help your business obtain industry registration to avail a host of benefits.",
+    title: "Registration and Licence Services",
+    desc: "We can help you to obtain the appropriate licence for your business.",
   },
   {
     icon: trade,
-    title: "Trade Licence",
-    desc: "We can help your business obtain industry registration to avail a host of benefits.",
+    title: "Taxation and Legal Compliance",
+    desc: "We can help you in tax filling and to follow the correct auditing methods for your firm.",
   },
 ];
 
@@ -228,14 +223,14 @@ Thanks for your services`,
       serifColor="text-darkBlue"
     />
     <div
-      class="service-cards gap-5 mt-7 grid items-center justify-center lg:grid-cols-4 mx-auto md:grid md:grid-cols-3"
+      class="service-cards gap-11 mt-7 grid items-center place-items-center justify-center lg:grid-cols-3 mx-auto md:grid md:grid-cols-3 "
       id="service-cards"
     >
-      <p
+      <!-- <p
         class="text-darkBlue font-sans text-3xl font-semibold w-60 text-left p-3  hidden md:block"
       >
         Unmatched Services Unmatched Excellence
-      </p>
+      </p> -->
       {
         services.map((s) => {
           return <ServiceCard icon={s.icon} title={s.title} desc={s.desc} />;

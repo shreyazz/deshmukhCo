@@ -9,7 +9,7 @@ export default function ReactComponent({children}) {
 
      {
         blogs.map((b,id) => {
-                return <div key={id} class="p-4 flex flex-col gap-3 ">
+                return <div key={id} class="p-4 flex flex-col gap-3 bg-[#f1f1f1] rounded-lg">
                   {b.image ? <img src={b.image} alt="" class="h-[100%] w-[100%] rounded-md object-cover" /> : <img src={defaultBlogImg} alt="" class="h-[100%] w-[100%] rounded-md" />}
                   <span class="px-2 py-1 border border-gold w-[fit-content] rounded-md text-[#4242429e]">{b.category}</span>
                   <h2 class="text-2xl text-darkBlue font-medium">{b.title}</h2>
